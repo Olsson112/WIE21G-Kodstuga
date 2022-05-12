@@ -1,5 +1,5 @@
 {
-  "name": "typescript-intro",
+  "name": "test",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -9,9 +9,6 @@
   },
   "devDependencies": {
     "typescript": "^4.5.4",
-    "vite": "^2.9.7"
-  },
-  "dependencies": {
-    "gsap": "^3.10.4"
+    "vite": "^2.9.9"
   }
 }

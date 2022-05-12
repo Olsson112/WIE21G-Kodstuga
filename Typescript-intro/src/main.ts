@@ -2,7 +2,6 @@ import './style.css'
 
 let myString: string;
 
-
 interface Fordon {
   brand: string
 }
@@ -165,3 +164,6 @@ const makeNumberArr = (x: number, y: number): number[] => {
 const makeStringArr = (x: string, y: string): string[] => {
   return [x, y]
 }
+
+
+let element = document.getElementById("test")!

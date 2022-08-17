@@ -1,0 +1,12 @@
+GET http://localhost:3000/api/Greetings
+
+###
+
+GET http://localhost:3000/api/name/Victor
+
+###
+
+GET http://localhost:3000/api/test?valueOne=TestString
+###
+
+GET http://localhost:3000/api/external

@@ -1,0 +1,30 @@
+GET http://localhost:3000/cities
+
+###
+
+GET http://localhost:3000/cities/JgoRLlFhCenCaeYHHUdAB
+
+###
+
+POST http://localhost:3000/cities
+Content-Type: application/json
+
+{
+    "name": "Mariestad",
+    "population": 50500 
+}
+
+###
+
+DELETE http://localhost:3000/cities/2_dLNujczK7rBPALIKZ09
+
+###
+
+PUT http://localhost:3000/cities
+Content-Type: application/json
+
+ {
+    "id": "o543yjsgXOTq_pfpzTcPU",
+    "name": "Jönköping",
+    "population": 4000000
+  }

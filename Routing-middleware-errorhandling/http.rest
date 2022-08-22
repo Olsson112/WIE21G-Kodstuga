@@ -1,0 +1,11 @@
+GET http://localhost:3000/admin
+
+###
+
+POST http://localhost:3000/admin
+Content-Type: application/json
+
+{
+    "name": "Pelle",
+    "age": 55
+}

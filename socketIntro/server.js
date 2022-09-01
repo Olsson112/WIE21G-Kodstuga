@@ -4,15 +4,17 @@ import express from "express";
 
 const app = express()
 const httpServer = createServer(app);
-const port = 3000;
-const io = new Server(httpServer);
+const port = 4000;
+const io = new Server(httpServer, {
+    cors: {
+      origin: '*',
+    }
+});
 
 app.use("/", express.static("./client"))
 
 io.on("connection", (socket) => {
     console.log("Socket has connected: " + socket.id)
-
-    //io.emit("newSocketConnected", socket.id)
 
     socket.on("join", (socketRoomData) => {
         socket.leave(socketRoomData.roomToLeave)
@@ -22,7 +24,9 @@ io.on("connection", (socket) => {
     })
 
     socket.on("getRooms", () => {
-        console.log(io.sockets.adapter.rooms)
+        const filteredRoomsArray = convertRoomMap()
+
+        io.emit("rooms", filteredRoomsArray)
     })
 
     socket.on("msg", (msgObj) => {
@@ -30,6 +34,35 @@ io.on("connection", (socket) => {
         io.in(msgObj.joinedRoom).emit("msg", {msg: msgObj.msg, nickname: socket.nickname})
     })
 })
+
+const convertRoomMap = () => {
+    /* 
+
+    // NOTE: Alla ? skall ersättas med korrekt kod
+
+    // Gör om map till en array med arrayer
+    const convertedArray = Array.from(io.sockets.adapter.rooms)
+
+    // Filtrera bort samtliga sockets
+    const filteredRooms = convertedArray.filter(room => ?.has(?))
+
+    // Plocka ut rum med socketIDs
+    const roomsWithSocketID = filteredRooms.map((roomArray) => {
+        return {room: ?, sockets: Array.from(?)}
+    })
+
+    // Plocka ut rum med socketIDs och nicknames
+    const roomsWithIdsAndNickname = roomsWithSocketID.map((roomObj) => {
+        const nicknames = roomObj.sockets.map((socketId) => {
+            return { id: socketId, nickname: io.sockets.sockets.get(?).? }
+        })
+        return {room: roomObj.room, sockets: nicknames}
+    })
+
+    return roomsWithIdsAndNickname
+
+    */
+}
 
 httpServer.listen(port, () => {
     console.log("Server is running on port " + port);

@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io(/* Url till backendserver */);
 
 let nickname = "Kalle"
 let joinedRoom = ""
@@ -9,6 +9,10 @@ socket.on("newSocketConnected", (socketId) => {
 
 socket.on("welcome", (msg) => {
     console.log(msg)
+})
+
+socket.on("rooms", (rooms) => {
+    console.log(rooms)
 })
 
 socket.on("msg", (msgObj) => {
